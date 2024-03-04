@@ -9,7 +9,7 @@ function App() {
   const [count, setCount] = useState(0)
   useEffect(() => {
     alert("This is my alert");
-  }, [])
+  }, [count])
   return (
     <>
       <div>
