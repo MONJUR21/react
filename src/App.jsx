@@ -3,13 +3,13 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-useEffect(() => {
-  alert("This is my alert");
-}, [])
+
 
 function App() {
   const [count, setCount] = useState(0)
-
+  useEffect(() => {
+    alert("This is my alert");
+  }, [])
   return (
     <>
       <div>
