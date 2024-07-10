@@ -1,0 +1,14 @@
+*{
+    padding: 0;
+    margin: 5px;
+}
+nav{
+    background-color: antiquewhite;
+}
+nav ul{
+    display:flex;
+    list-style: none;
+}
+nav ul li{
+    padding: 34px;
+}
