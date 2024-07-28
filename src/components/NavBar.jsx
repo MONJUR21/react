@@ -1,17 +1,22 @@
-import React from 'react'
-import './NavBar.css'
-const NavBar = (props) => {
+import React from "react";
+import "./NavBar.css";
+import { memo } from "react";
+// import Button from './Button.jsx'
+const NavBar = ({adjective,getAdjective}) => {
+  console.log("NavBar is reRendered");
   return (
     <>
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>Contact Us</li>
-                <li>About Us</li>
-            </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li>Home</li>
+          <li>Contact Us</li>
+          <li>About Us</li>
+          <li>{adjective}</li>
+          <button onClick={()=>{getAdjective()}}>change me</button>
+        </ul>
+      </nav>
     </>
-  )
-}
+  );
+};
 
-export default NavBar
+export default memo(NavBar);

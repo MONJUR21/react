@@ -1,37 +1,39 @@
-import { useState,useEffect,useRef} from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import NavBar from './components/NavBar.jsx'
+import React, { useState, createContext } from "react";
+import NavBar from "./components/NavBar";
+import { myContext } from "./components/MyContext";
 
-
-function App() {
+const App = () => {
+  // const [btn, setbtn] = useState(false);
+  // const toggle = () => {
+  //   btn ? setbtn(false) : setbtn(true);
+  // };
+  const handleChange = () => {
+    setCount(count + 1);
+  };
   const [count, setCount] = useState(0);
-  // const a=useRef(0);
-  const ref=useRef();
-  useEffect(() => {
-    // a.current++;  // This will cause a re-render when a changes.
-    // console.log('a changed', a.current);
-    ref.current.style.backgroundColor="red"
-  },[]);
+  const [adjective, setAdjective] = useState("good");
+  const getAdjective = () => {
+    setAdjective(Math.random() > 0.5? "good" : "bad");
+  };
+  // useEffect(() => {
+  //   alert("useEffect triggered");
+  // });
+  // useEffect(() => {
+  //   alert("Count was changed");
+  // }, [count]);
+  // useEffect(() => {
+  //   alert("I am working only on first render.");
+  // }, []);
   return (
     <>
-      <h1>{count}</h1>
-      <button ref={ref} onClick={()=>{setCount(count+1)}}>click me</button>
-      <NavBar/>
-      <NavBar/>
-      <NavBar/>
-      <NavBar/>
-      <NavBar/>
-      <NavBar/>
-      <NavBar/>
-      <NavBar/>
-      <NavBar/>
-      <NavBar/>
-      <NavBar/>
-      <NavBar/>
+      {/* <myContext.Provider value={{count,setCount}}> */}
+      <NavBar adjective={adjective} getAdjective={getAdjective} />
+      {/* {btn?<button>Hey I am here</button>:"Nothing"}
+      <button onClick={toggle}>toggle me</button> */}
+      <button>{count}</button>
+      <button onClick={handleChange}>click me</button>
+      {/* </myContext.Provider> */}
     </>
-  )
-}
-
-export default App
+  );
+};
+export default App;
